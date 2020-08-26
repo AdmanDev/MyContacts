@@ -83,6 +83,7 @@
             // 
             // CB_Group
             // 
+            this.CB_Group.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_Group.FormattingEnabled = true;
             this.CB_Group.Location = new System.Drawing.Point(90, 230);
@@ -218,6 +219,7 @@
             this.BT_Add.TabIndex = 14;
             this.BT_Add.Text = "Ajouter un contact";
             this.BT_Add.UseVisualStyleBackColor = true;
+            this.BT_Add.Click += new System.EventHandler(this.BT_Add_Click);
             // 
             // BT_ChooseImage
             // 

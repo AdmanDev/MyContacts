@@ -37,6 +37,7 @@
             this.LB_Contacts = new System.Windows.Forms.ListBox();
             this.CB_Groups = new System.Windows.Forms.ComboBox();
             this.PNL_Right = new System.Windows.Forms.Panel();
+            this.BT_DeleteContact = new System.Windows.Forms.Button();
             this.LB_Ville = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.LB_Address = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.LB_Name = new System.Windows.Forms.Label();
             this.LB_Group = new System.Windows.Forms.Label();
             this.PB_ContactPhoto = new System.Windows.Forms.PictureBox();
-            this.BT_DeleteContact = new System.Windows.Forms.Button();
             this.PNL_Left.SuspendLayout();
             this.Group_Search.SuspendLayout();
             this.Group_ContactsList.SuspendLayout();
@@ -104,6 +104,7 @@
             this.BT_AddContact.TabIndex = 2;
             this.BT_AddContact.Text = "Ajouter";
             this.BT_AddContact.UseVisualStyleBackColor = true;
+            this.BT_AddContact.Click += new System.EventHandler(this.BT_AddContact_Click);
             // 
             // LB_Contacts
             // 
@@ -142,6 +143,18 @@
             this.PNL_Right.Name = "PNL_Right";
             this.PNL_Right.Size = new System.Drawing.Size(302, 433);
             this.PNL_Right.TabIndex = 1;
+            // 
+            // BT_DeleteContact
+            // 
+            this.BT_DeleteContact.BackColor = System.Drawing.Color.Transparent;
+            this.BT_DeleteContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_DeleteContact.BackgroundImage")));
+            this.BT_DeleteContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_DeleteContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_DeleteContact.Location = new System.Drawing.Point(267, 3);
+            this.BT_DeleteContact.Name = "BT_DeleteContact";
+            this.BT_DeleteContact.Size = new System.Drawing.Size(32, 32);
+            this.BT_DeleteContact.TabIndex = 18;
+            this.BT_DeleteContact.UseVisualStyleBackColor = false;
             // 
             // LB_Ville
             // 
@@ -250,21 +263,9 @@
             this.PB_ContactPhoto.Location = new System.Drawing.Point(3, 3);
             this.PB_ContactPhoto.Name = "PB_ContactPhoto";
             this.PB_ContactPhoto.Size = new System.Drawing.Size(296, 229);
-            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB_ContactPhoto.TabIndex = 0;
             this.PB_ContactPhoto.TabStop = false;
-            // 
-            // BT_DeleteContact
-            // 
-            this.BT_DeleteContact.BackColor = System.Drawing.Color.Transparent;
-            this.BT_DeleteContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BT_DeleteContact.BackgroundImage")));
-            this.BT_DeleteContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BT_DeleteContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_DeleteContact.Location = new System.Drawing.Point(264, 2);
-            this.BT_DeleteContact.Name = "BT_DeleteContact";
-            this.BT_DeleteContact.Size = new System.Drawing.Size(32, 32);
-            this.BT_DeleteContact.TabIndex = 18;
-            this.BT_DeleteContact.UseVisualStyleBackColor = false;
             // 
             // MainWindow
             // 
