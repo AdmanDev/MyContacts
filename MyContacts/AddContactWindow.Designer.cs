@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BT_Add = new System.Windows.Forms.Button();
             this.BT_ChooseImage = new System.Windows.Forms.Button();
+            this.OFD = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.PB_ContactPhoto)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.PB_ContactPhoto.Location = new System.Drawing.Point(12, 12);
             this.PB_ContactPhoto.Name = "PB_ContactPhoto";
             this.PB_ContactPhoto.Size = new System.Drawing.Size(296, 229);
-            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PB_ContactPhoto.TabIndex = 1;
             this.PB_ContactPhoto.TabStop = false;
             // 
@@ -224,12 +225,18 @@
             // BT_ChooseImage
             // 
             this.BT_ChooseImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ChooseImage.Location = new System.Drawing.Point(12, 210);
+            this.BT_ChooseImage.Location = new System.Drawing.Point(17, 208);
             this.BT_ChooseImage.Name = "BT_ChooseImage";
-            this.BT_ChooseImage.Size = new System.Drawing.Size(299, 32);
+            this.BT_ChooseImage.Size = new System.Drawing.Size(284, 32);
             this.BT_ChooseImage.TabIndex = 15;
             this.BT_ChooseImage.Text = "Choisir une image...";
             this.BT_ChooseImage.UseVisualStyleBackColor = true;
+            this.BT_ChooseImage.Click += new System.EventHandler(this.BT_ChooseImage_Click);
+            // 
+            // OFD
+            // 
+            this.OFD.Filter = "(Finchier PNG)|*.png|(Fichier JPEG)|*.jpg";
+            this.OFD.Title = "Sélectionnez une image...";
             // 
             // AddContactWindow
             // 
@@ -270,5 +277,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BT_Add;
         private System.Windows.Forms.Button BT_ChooseImage;
+        private System.Windows.Forms.OpenFileDialog OFD;
     }
 }

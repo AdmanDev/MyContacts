@@ -52,7 +52,7 @@
     <Compile Include="AddContactWindow.Designer.cs">
       <DependentUpon>AddContactWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
+    <Compile Include="Scripts\Global.cs" />
     <Compile Include="Scripts\Group.cs" />
     <Compile Include="Scripts\Contact.cs" />
     <Compile Include="MainWindow.cs">

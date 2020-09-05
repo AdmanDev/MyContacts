@@ -38,13 +38,13 @@
             this.CB_Groups = new System.Windows.Forms.ComboBox();
             this.PNL_Right = new System.Windows.Forms.Panel();
             this.BT_DeleteContact = new System.Windows.Forms.Button();
-            this.LB_Ville = new System.Windows.Forms.Label();
+            this.LB_City = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.LB_Address = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.LB_Tel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Lb_Email = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LB_Name = new System.Windows.Forms.Label();
             this.LB_Group = new System.Windows.Forms.Label();
@@ -115,6 +115,7 @@
             this.LB_Contacts.Size = new System.Drawing.Size(221, 264);
             this.LB_Contacts.Sorted = true;
             this.LB_Contacts.TabIndex = 1;
+            this.LB_Contacts.SelectedIndexChanged += new System.EventHandler(this.LB_Contacts_SelectedIndexChanged);
             // 
             // CB_Groups
             // 
@@ -124,17 +125,18 @@
             this.CB_Groups.Name = "CB_Groups";
             this.CB_Groups.Size = new System.Drawing.Size(209, 28);
             this.CB_Groups.TabIndex = 0;
+            this.CB_Groups.SelectedIndexChanged += new System.EventHandler(this.CB_Groups_SelectedIndexChanged);
             // 
             // PNL_Right
             // 
             this.PNL_Right.Controls.Add(this.BT_DeleteContact);
-            this.PNL_Right.Controls.Add(this.LB_Ville);
+            this.PNL_Right.Controls.Add(this.LB_City);
             this.PNL_Right.Controls.Add(this.label6);
             this.PNL_Right.Controls.Add(this.LB_Address);
             this.PNL_Right.Controls.Add(this.label5);
             this.PNL_Right.Controls.Add(this.LB_Tel);
             this.PNL_Right.Controls.Add(this.label4);
-            this.PNL_Right.Controls.Add(this.label2);
+            this.PNL_Right.Controls.Add(this.Lb_Email);
             this.PNL_Right.Controls.Add(this.label1);
             this.PNL_Right.Controls.Add(this.LB_Name);
             this.PNL_Right.Controls.Add(this.LB_Group);
@@ -156,15 +158,15 @@
             this.BT_DeleteContact.TabIndex = 18;
             this.BT_DeleteContact.UseVisualStyleBackColor = false;
             // 
-            // LB_Ville
+            // LB_City
             // 
-            this.LB_Ville.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Ville.Location = new System.Drawing.Point(89, 401);
-            this.LB_Ville.Name = "LB_Ville";
-            this.LB_Ville.Size = new System.Drawing.Size(204, 20);
-            this.LB_Ville.TabIndex = 17;
-            this.LB_Ville.Text = "Paris";
-            this.LB_Ville.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LB_City.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_City.Location = new System.Drawing.Point(89, 401);
+            this.LB_City.Name = "LB_City";
+            this.LB_City.Size = new System.Drawing.Size(204, 20);
+            this.LB_City.TabIndex = 17;
+            this.LB_City.Text = "Paris";
+            this.LB_City.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
@@ -216,15 +218,15 @@
             this.label4.Text = "Tél :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // Lb_Email
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(81, 294);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 23);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "adman.software@gmail.com";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lb_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lb_Email.Location = new System.Drawing.Point(81, 294);
+            this.Lb_Email.Name = "Lb_Email";
+            this.Lb_Email.Size = new System.Drawing.Size(214, 23);
+            this.Lb_Email.TabIndex = 11;
+            this.Lb_Email.Text = "adman.software@gmail.com";
+            this.Lb_Email.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -263,7 +265,7 @@
             this.PB_ContactPhoto.Location = new System.Drawing.Point(3, 3);
             this.PB_ContactPhoto.Name = "PB_ContactPhoto";
             this.PB_ContactPhoto.Size = new System.Drawing.Size(296, 229);
-            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_ContactPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PB_ContactPhoto.TabIndex = 0;
             this.PB_ContactPhoto.TabStop = false;
             // 
@@ -299,13 +301,13 @@
         private System.Windows.Forms.Panel PNL_Right;
         private System.Windows.Forms.Label LB_Group;
         private System.Windows.Forms.PictureBox PB_ContactPhoto;
-        private System.Windows.Forms.Label LB_Ville;
+        private System.Windows.Forms.Label LB_City;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LB_Address;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LB_Tel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Lb_Email;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LB_Name;
         private System.Windows.Forms.Button BT_DeleteContact;
