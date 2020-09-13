@@ -10,6 +10,9 @@ namespace MyContacts
         {
             InitializeComponent();
 
+            // On ouvre les données (groupes et contacts) de l'utilisateur
+            Global.contactsGroup = SaveManager.Open();
+
             LoadGroup();
         }
 
@@ -76,6 +79,9 @@ namespace MyContacts
             {
                 // Mettre à jour la liste des contacts
                 UpdateContacts();
+
+                // Sauvegarder les données
+                SaveManager.Save(Global.contactsGroup);
             }
         }
 

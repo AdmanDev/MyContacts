@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MyContacts
 {
+    [Serializable] //Attribue "Serializable" permettant de sauvegarder l'objet
     public class Group
     {
         //Variables

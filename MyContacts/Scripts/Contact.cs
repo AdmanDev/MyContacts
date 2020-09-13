@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace MyContacts
 {
+    [Serializable] //Attribue "Serializable" permettant de sauvegarder l'objet
     public class Contact
     {
         //Variables

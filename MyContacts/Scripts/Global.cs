@@ -9,11 +9,6 @@ namespace MyContacts
         //__________________________________VARIABLES__________________________________//
 
         //Liste des groupes de contacts de l'utilisateur
-        public static List<Group> contactsGroup = new List<Group>() 
-        {
-            new Group("Amis"),
-            new Group("Travail"),
-            new Group("Famille")
-        };
+        public static List<Group> contactsGroup;
     }
 }
