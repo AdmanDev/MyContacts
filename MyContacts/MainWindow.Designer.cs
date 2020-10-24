@@ -157,6 +157,7 @@
             this.BT_DeleteContact.Size = new System.Drawing.Size(32, 32);
             this.BT_DeleteContact.TabIndex = 18;
             this.BT_DeleteContact.UseVisualStyleBackColor = false;
+            this.BT_DeleteContact.Click += new System.EventHandler(this.BT_DeleteContact_Click);
             // 
             // LB_City
             // 

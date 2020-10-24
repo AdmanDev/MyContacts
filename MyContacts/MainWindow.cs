@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MyContacts
@@ -113,8 +114,18 @@ namespace MyContacts
             ClearInfos();
 
             // On affiche ceux du nouveau
-            this.PB_ContactPhoto.Image = contact.Photo;
-            this.LB_Group.Text = this.CB_Groups.SelectedItem.ToString();
+            Image imageToShow;
+            if(contact.Photo != null)
+            {
+                imageToShow = contact.Photo;
+            }
+            else
+            {
+                imageToShow = Properties.Resources.ic_profile;
+            }
+
+            this.PB_ContactPhoto.Image = imageToShow;
+            this.LB_Group.Text = GetGroupOf(contact).Name;
             this.LB_Name.Text = contact.ToString();
             this.Lb_Email.Text = contact.Email;
             this.LB_Tel.Text = contact.Tel;
@@ -125,13 +136,37 @@ namespace MyContacts
         // Enlève les infos du contact précédemment séléctionné
         private void ClearInfos()
         {
-            this.PB_ContactPhoto.Image = null;
+            this.PB_ContactPhoto.Image = Properties.Resources.ic_profile;
             this.LB_Group.Text = "";
             this.LB_Name.Text = "";
             this.Lb_Email.Text = "";
             this.LB_Tel.Text = "";
             this.LB_Address.Text = "";
             this.LB_City.Text = "";
+        }
+
+        private Group GetGroupOf(Contact contact)
+        {
+            return Global.contactsGroup.Find(group => group.Contacts.Contains(contact));
+        }
+
+        private void BT_DeleteContact_Click(object sender, EventArgs e)
+        {
+            Contact contact = (Contact)this.LB_Contacts.SelectedItem;
+            Group group = GetGroupOf(contact);
+
+            if(group != null && contact != null)
+            {
+                DialogResult dr = MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce contact ?",
+                                    "MyContacts", MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+                if(dr == DialogResult.Yes)
+                {
+                    group.Contacts.Remove(contact);
+                    UpdateContacts();
+                    SaveManager.Save(Global.contactsGroup);
+                }
+            }
         }
     }
 }
