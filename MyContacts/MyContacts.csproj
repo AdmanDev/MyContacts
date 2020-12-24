@@ -52,6 +52,12 @@
     <Compile Include="AddContactWindow.Designer.cs">
       <DependentUpon>AddContactWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddGroupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupWindow.Designer.cs">
+      <DependentUpon>AddGroupWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\SaveManager.cs" />
     <Compile Include="Scripts\Global.cs" />
     <Compile Include="Scripts\Group.cs" />
@@ -66,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddContactWindow.resx">
       <DependentUpon>AddContactWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupWindow.resx">
+      <DependentUpon>AddGroupWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

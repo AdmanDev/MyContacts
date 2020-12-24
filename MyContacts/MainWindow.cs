@@ -18,7 +18,7 @@ namespace MyContacts
         }
 
         // Charge les groupes dans la liste déroulante
-        private void LoadGroup()
+        public void LoadGroup()
         {
             this.CB_Groups.Items.Clear();
             this.CB_Groups.Items.Add("Tout");

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PB_ContactPhoto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CB_Group = new System.Windows.Forms.ComboBox();
@@ -47,8 +48,12 @@
             this.BT_Add = new System.Windows.Forms.Button();
             this.BT_ChooseImage = new System.Windows.Forms.Button();
             this.OFD = new System.Windows.Forms.OpenFileDialog();
+            this.BT_AddGroup = new System.Windows.Forms.Button();
+            this.CM_Group = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MI_DeleteGroup = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PB_ContactPhoto)).BeginInit();
             this.panel1.SuspendLayout();
+            this.CM_Group.SuspendLayout();
             this.SuspendLayout();
             // 
             // PB_ContactPhoto
@@ -63,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BT_AddGroup);
             this.panel1.Controls.Add(this.CB_Group);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.TB_City);
@@ -84,12 +90,13 @@
             // 
             // CB_Group
             // 
+            this.CB_Group.ContextMenuStrip = this.CM_Group;
             this.CB_Group.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_Group.FormattingEnabled = true;
             this.CB_Group.Location = new System.Drawing.Point(90, 230);
             this.CB_Group.Name = "CB_Group";
-            this.CB_Group.Size = new System.Drawing.Size(204, 28);
+            this.CB_Group.Size = new System.Drawing.Size(130, 28);
             this.CB_Group.TabIndex = 13;
             // 
             // label7
@@ -238,6 +245,31 @@
             this.OFD.Filter = "(Finchier PNG)|*.png|(Fichier JPEG)|*.jpg";
             this.OFD.Title = "Sélectionnez une image...";
             // 
+            // BT_AddGroup
+            // 
+            this.BT_AddGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_AddGroup.Location = new System.Drawing.Point(226, 229);
+            this.BT_AddGroup.Name = "BT_AddGroup";
+            this.BT_AddGroup.Size = new System.Drawing.Size(69, 29);
+            this.BT_AddGroup.TabIndex = 14;
+            this.BT_AddGroup.Text = "Ajouter";
+            this.BT_AddGroup.UseVisualStyleBackColor = true;
+            this.BT_AddGroup.Click += new System.EventHandler(this.BT_AddGroup_Click);
+            // 
+            // CM_Group
+            // 
+            this.CM_Group.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MI_DeleteGroup});
+            this.CM_Group.Name = "CM_Group";
+            this.CM_Group.Size = new System.Drawing.Size(130, 26);
+            // 
+            // MI_DeleteGroup
+            // 
+            this.MI_DeleteGroup.Name = "MI_DeleteGroup";
+            this.MI_DeleteGroup.Size = new System.Drawing.Size(180, 22);
+            this.MI_DeleteGroup.Text = "Supprimer";
+            this.MI_DeleteGroup.Click += new System.EventHandler(this.MI_DeleteGroup_Click);
+            // 
             // AddContactWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PB_ContactPhoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.CM_Group.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -278,5 +311,8 @@
         private System.Windows.Forms.Button BT_Add;
         private System.Windows.Forms.Button BT_ChooseImage;
         private System.Windows.Forms.OpenFileDialog OFD;
+        private System.Windows.Forms.Button BT_AddGroup;
+        private System.Windows.Forms.ContextMenuStrip CM_Group;
+        private System.Windows.Forms.ToolStripMenuItem MI_DeleteGroup;
     }
 }

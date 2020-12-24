@@ -16,7 +16,8 @@ namespace MyContacts
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            Global.mainWindow = new MainWindow();
+            Application.Run(Global.mainWindow);
         }
     }
 }
