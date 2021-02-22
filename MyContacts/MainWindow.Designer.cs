@@ -82,6 +82,7 @@
             this.TB_Search.Name = "TB_Search";
             this.TB_Search.Size = new System.Drawing.Size(212, 26);
             this.TB_Search.TabIndex = 0;
+            this.TB_Search.TextChanged += new System.EventHandler(this.TB_Search_TextChanged);
             // 
             // Group_ContactsList
             // 

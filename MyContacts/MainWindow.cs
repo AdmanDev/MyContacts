@@ -145,26 +145,72 @@ namespace MyContacts
             this.LB_City.Text = "";
         }
 
+        // Obtenir le groupe d'un contacte
         private Group GetGroupOf(Contact contact)
         {
             return Global.contactsGroup.Find(group => group.Contacts.Contains(contact));
         }
 
+        //Supprimer un contacte
         private void BT_DeleteContact_Click(object sender, EventArgs e)
         {
+            // On obtient le contacte à suprrimer ainsi que son groupe
             Contact contact = (Contact)this.LB_Contacts.SelectedItem;
             Group group = GetGroupOf(contact);
 
+            // Si le contate et le groupe ont été trouvés...
             if(group != null && contact != null)
             {
+                // On affiche un message de confirmation
                 DialogResult dr = MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce contact ?",
                                     "MyContacts", MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question);
+                // Si l'utilisateur confirme la supression...
                 if(dr == DialogResult.Yes)
                 {
+                    // On retire le contacte du groupe
                     group.Contacts.Remove(contact);
+                    // On met à jour la liste
                     UpdateContacts();
+                    // On sauvegarde
                     SaveManager.Save(Global.contactsGroup);
+                }
+            }
+        }
+
+        // Rechercher un contact
+        private void TB_Search_TextChanged(object sender, EventArgs e)
+        {
+            // On récupère la saisie de l'utilisateur (la chaine à rechercher)
+            string search = this.TB_Search.Text.ToLower();
+
+            // Si cette saisie est vide alors...
+            if(search.Length <= 0)
+            {
+                // On revient à la normal en affichant tout les contact du groupe séectionné
+                UpdateContacts();
+                // Et on quitte la méthode
+                return;
+            }
+
+            // On vide la liste de contacts
+            this.LB_Contacts.Items.Clear();
+
+            // On parcours tout les groupes
+            foreach (Group g in Global.contactsGroup)
+            {
+                // On parcours la liste de contacts du groupe courant
+                foreach (Contact c in g.Contacts)
+                {
+                    // On récupère le nom et prénom du contact courant en minuscule (ToLower)
+                    string cName = c.ToString().ToLower();
+
+                    // Si le nom complet du contact contient la chaine recherché alors...
+                    if (cName.Contains(search))
+                    {
+                        // On ajoute le contact à la liste
+                        this.LB_Contacts.Items.Add(c);
+                    }
                 }
             }
         }
