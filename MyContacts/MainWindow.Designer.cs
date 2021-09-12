@@ -49,20 +49,24 @@
             this.LB_Name = new System.Windows.Forms.Label();
             this.LB_Group = new System.Windows.Forms.Label();
             this.PB_ContactPhoto = new System.Windows.Forms.PictureBox();
+            this.PB_Favorite = new System.Windows.Forms.PictureBox();
+            this.CB_ShowFavorite = new System.Windows.Forms.CheckBox();
             this.PNL_Left.SuspendLayout();
             this.Group_Search.SuspendLayout();
             this.Group_ContactsList.SuspendLayout();
             this.PNL_Right.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_ContactPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Favorite)).BeginInit();
             this.SuspendLayout();
             // 
             // PNL_Left
             // 
+            this.PNL_Left.Controls.Add(this.CB_ShowFavorite);
             this.PNL_Left.Controls.Add(this.Group_Search);
             this.PNL_Left.Controls.Add(this.Group_ContactsList);
             this.PNL_Left.Location = new System.Drawing.Point(3, 2);
             this.PNL_Left.Name = "PNL_Left";
-            this.PNL_Left.Size = new System.Drawing.Size(227, 433);
+            this.PNL_Left.Size = new System.Drawing.Size(227, 466);
             this.PNL_Left.TabIndex = 0;
             // 
             // Group_Search
@@ -130,6 +134,7 @@
             // 
             // PNL_Right
             // 
+            this.PNL_Right.Controls.Add(this.PB_Favorite);
             this.PNL_Right.Controls.Add(this.BT_DeleteContact);
             this.PNL_Right.Controls.Add(this.LB_City);
             this.PNL_Right.Controls.Add(this.label6);
@@ -144,7 +149,7 @@
             this.PNL_Right.Controls.Add(this.PB_ContactPhoto);
             this.PNL_Right.Location = new System.Drawing.Point(234, 2);
             this.PNL_Right.Name = "PNL_Right";
-            this.PNL_Right.Size = new System.Drawing.Size(302, 433);
+            this.PNL_Right.Size = new System.Drawing.Size(302, 466);
             this.PNL_Right.TabIndex = 1;
             // 
             // BT_DeleteContact
@@ -271,22 +276,47 @@
             this.PB_ContactPhoto.TabIndex = 0;
             this.PB_ContactPhoto.TabStop = false;
             // 
+            // PB_Favorite
+            // 
+            this.PB_Favorite.Image = global::MyContacts.Properties.Resources.Star___No_favorite;
+            this.PB_Favorite.Location = new System.Drawing.Point(4, 4);
+            this.PB_Favorite.Name = "PB_Favorite";
+            this.PB_Favorite.Size = new System.Drawing.Size(38, 38);
+            this.PB_Favorite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PB_Favorite.TabIndex = 19;
+            this.PB_Favorite.TabStop = false;
+            this.PB_Favorite.Click += new System.EventHandler(this.PB_Favorite_Click);
+            // 
+            // CB_ShowFavorite
+            // 
+            this.CB_ShowFavorite.AutoSize = true;
+            this.CB_ShowFavorite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_ShowFavorite.Location = new System.Drawing.Point(6, 438);
+            this.CB_ShowFavorite.Name = "CB_ShowFavorite";
+            this.CB_ShowFavorite.Size = new System.Drawing.Size(157, 24);
+            this.CB_ShowFavorite.TabIndex = 2;
+            this.CB_ShowFavorite.Text = "Afficher les favoris";
+            this.CB_ShowFavorite.UseVisualStyleBackColor = true;
+            this.CB_ShowFavorite.CheckedChanged += new System.EventHandler(this.CB_ShowFavorite_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 446);
+            this.ClientSize = new System.Drawing.Size(539, 469);
             this.Controls.Add(this.PNL_Right);
             this.Controls.Add(this.PNL_Left);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyContacts";
             this.PNL_Left.ResumeLayout(false);
+            this.PNL_Left.PerformLayout();
             this.Group_Search.ResumeLayout(false);
             this.Group_Search.PerformLayout();
             this.Group_ContactsList.ResumeLayout(false);
             this.PNL_Right.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_ContactPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Favorite)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,6 +343,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LB_Name;
         private System.Windows.Forms.Button BT_DeleteContact;
+        private System.Windows.Forms.CheckBox CB_ShowFavorite;
+        private System.Windows.Forms.PictureBox PB_Favorite;
     }
 }
 

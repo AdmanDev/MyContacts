@@ -105,6 +105,8 @@
   <ItemGroup>
     <Content Include="Images\ic_delete.png" />
     <Content Include="Images\ic_profile.png" />
+    <Content Include="Images\Star - favorie.png" />
+    <Content Include="Images\Star - No favorite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

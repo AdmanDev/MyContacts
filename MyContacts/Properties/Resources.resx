@@ -124,4 +124,10 @@
   <data name="ic_profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\ic_profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Star___favorie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\star - favorie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Star___No_favorite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\star - no favorite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

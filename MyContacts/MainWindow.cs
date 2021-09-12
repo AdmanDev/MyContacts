@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -54,6 +55,12 @@ namespace MyContacts
         // Affiche, dans la liste, les contacts d'un groupe
         private void ShowContactsOf(Group group)
         {
+            // Si la case cocher des favoris est activé, on la désactive
+            if (this.CB_ShowFavorite.Checked)
+            {
+                this.CB_ShowFavorite.Checked = false;
+            }
+
             this.LB_Contacts.Items.Clear();
             this.LB_Contacts.Items.AddRange(group.Contacts.ToArray());
         }
@@ -62,10 +69,28 @@ namespace MyContacts
         private void ShowAllContacts()
         {
             this.LB_Contacts.Items.Clear();
-            foreach (Group group in Global.contactsGroup)
+
+            // Si la case cocher des favoris est désactivé...
+            if (!this.CB_ShowFavorite.Checked)
             {
-                this.LB_Contacts.Items.AddRange(group.Contacts.ToArray());
+                // ...On affiche tout les contacts
+                foreach (Group group in Global.contactsGroup)
+                {
+                     this.LB_Contacts.Items.AddRange(group.Contacts.ToArray());
+                }
             }
+            else
+            {
+                // ...Sinon on affiche uniquement les favoris
+                List<Contact> favoritesContacts = new List<Contact>();
+                foreach(Group group in Global.contactsGroup)
+                {
+                    List<Contact> favoritesOfGroup = group.Contacts.FindAll(c => c.Favorite);
+                    favoritesContacts.AddRange(favoritesOfGroup);
+                }
+                this.LB_Contacts.Items.AddRange(favoritesContacts.ToArray());
+            }
+            
         }
 
         // Lors d'un clic sur le bouton "Ajouter"...
@@ -131,6 +156,7 @@ namespace MyContacts
             this.LB_Tel.Text = contact.Tel;
             this.LB_Address.Text = contact.Address;
             this.LB_City.Text = contact.City;
+            UpdateFavorite(contact.Favorite);
         }
 
         // Enlève les infos du contact précédemment séléctionné
@@ -143,6 +169,7 @@ namespace MyContacts
             this.LB_Tel.Text = "";
             this.LB_Address.Text = "";
             this.LB_City.Text = "";
+            UpdateFavorite(false);
         }
 
         // Obtenir le groupe d'un contacte
@@ -181,6 +208,12 @@ namespace MyContacts
         // Rechercher un contact
         private void TB_Search_TextChanged(object sender, EventArgs e)
         {
+            // Si la case cocher des favoris est activé, on la désactive
+            if (this.CB_ShowFavorite.Checked)
+            {
+                this.CB_ShowFavorite.Checked = false;
+            }
+
             // On récupère la saisie de l'utilisateur (la chaine à rechercher)
             string search = this.TB_Search.Text.ToLower();
 
@@ -213,6 +246,38 @@ namespace MyContacts
                     }
                 }
             }
+        }
+
+        // Lors d'un clic sur l'image favoris...
+        private void PB_Favorite_Click(object sender, EventArgs e)
+        {
+            // On ajoute ou retire le contact des favoris
+            Contact contact = (Contact)this.LB_Contacts.SelectedItem;
+            contact.Favorite = !contact.Favorite;
+
+            UpdateFavorite(contact.Favorite);
+
+            SaveManager.Save(Global.contactsGroup);
+        }
+
+        // Met à jour l'icone des favoris
+        private void UpdateFavorite(bool favorite)
+        {
+            if(favorite)
+            {
+                this.PB_Favorite.Image = Properties.Resources.Star___favorie;
+            }
+            else
+            {
+                this.PB_Favorite.Image = Properties.Resources.Star___No_favorite;
+            }
+        }
+
+        // Quand on coche ou décoche la case "Afficher les favoris"...
+        private void CB_ShowFavorite_CheckedChanged(object sender, EventArgs e)
+        {
+            // On met à jour la liste des favoriis
+            ShowAllContacts();
         }
     }
 }

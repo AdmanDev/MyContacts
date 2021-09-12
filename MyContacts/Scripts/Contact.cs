@@ -14,6 +14,7 @@ namespace MyContacts
         private string address;
         private string city;
         private Image photo;
+        private bool favorite;
 
         //Properties
         public string FirstName { get => firstName; private set => firstName = value; }
@@ -23,6 +24,7 @@ namespace MyContacts
         public string Address { get => address; private set => address = value; }
         public string City { get => city; private set => city = value; }
         public Image Photo { get => photo; private set => photo = value; }
+        public bool Favorite { get => favorite; set => favorite = value; }
 
         //Constructors
         public Contact() 
@@ -30,7 +32,7 @@ namespace MyContacts
         
         }
 
-        public Contact(string firstName, string lastName, string email, string tel, string address, string city, Image photo)
+        public Contact(string firstName, string lastName, string email, string tel, string address, string city, Image photo, bool favorite = false)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -39,6 +41,7 @@ namespace MyContacts
             this.Address = address;
             this.City = city;
             this.Photo = photo;
+            this.favorite = favorite;
         }
 
         public override string ToString()
